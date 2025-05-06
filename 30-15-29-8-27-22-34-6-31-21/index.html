@@ -36,7 +36,7 @@
         input[type="text"] {
             font-size: 16px;
             padding: 5px;
-            width: 150px;
+            width: 280px;
         }
         button {
             padding: 5px 10px;
@@ -71,12 +71,12 @@
 
     <div class="section">
         <label for="odpoved">Zadaj odpoveď:</label><br>
-        <input type="text" id="odpoved" placeholder="napr. 321">
+        <input type="text" id="odpoved" placeholder="napr.324">
         <button onclick="skontroluj()">Odoslať</button>
     </div>
 
     <div id="next-task">
-        ✅ Správna odpoveď! Tu sa zobrazí ďalšia úloha...
+        ✅ Správna odpoveď!
     </div>
 </div>
 
@@ -88,6 +88,7 @@
 
         if (odpoved === spravna) {
             vysledok.style.display = "block";
+            window.location.href = "https://zoldy9.github.io/zoznamiky-infomix/114/";
         } else {
             alert("Nesprávna odpoveď. Skús znova.");
             vysledok.style.display = "none";
