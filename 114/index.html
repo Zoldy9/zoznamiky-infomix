@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Úloha 3 – Súčet najčastejších</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    img {
+      max-width: 90%;
+      height: auto;
+    }
+    .downloads, .answer-section {
+      margin-top: 20px;
+    }
+    .downloads a {
+      margin: 0 10px;
+    }
+    input[type="text"] {
+      padding: 5px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    #result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <img src="napoveda_3.png" alt="Nápoveda k úlohe 3">
+
+  <div class="downloads">
+    <a href="generuj_3.txt" download>Stiahnuť vstupný súbor</a>
+    <a href="riesenie_3.py" download>Stiahnuť riešenie</a>
+    <a href="generovanie_3.py" download>Stiahnuť generátor</a>
+  </div>
+
+  <div class="answer-section">
+    <label for="odpoved">Zadaj svoju odpoveď:</label>
+    <input type="text" id="odpoved" placeholder="napr. 1234">
+    <button onclick="skontroluj()">Odoslať</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    function skontroluj() {
+      const spravnaOdpoved = "2821";
+      const userInput = document.getElementById("odpoved").value.trim();
+      const resultDiv = document.getElementById("result");
+
+      if (userInput === spravnaOdpoved) {
+        resultDiv.style.color = "green";
+        resultDiv.textContent = "Správna odpoveď! Môžeš prejsť na ďalšiu úlohu.";
+        // window.location.href = "dalsia_uloha.html"; // tu môžeš pridať link ak bude hotová ďalšia úloha
+      } else {
+        resultDiv.style.color = "red";
+        resultDiv.textContent = "Nesprávna odpoveď. Skús to znova.";
+      }
+    }
+  </script>
+</body>
+</html>
