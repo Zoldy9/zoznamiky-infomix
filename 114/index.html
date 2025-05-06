@@ -1,72 +1,100 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <title>Úloha 3 – Súčet najčastejších</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-    img {
-      max-width: 90%;
-      height: auto;
-    }
-    .downloads, .answer-section {
-      margin-top: 20px;
-    }
-    .downloads a {
-      margin: 0 10px;
-    }
-    input[type="text"] {
-      padding: 5px;
-      font-size: 16px;
-      margin-right: 10px;
-    }
-    #result {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>INFOMIX – Úloha 3</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+        .container {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .section {
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        #next-task {
+            display: none;
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            background-color: #f3f3f3;
+        }
+        input[type="text"] {
+            font-size: 16px;
+            padding: 5px;
+            width: 280px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        img {
+            max-width: 100%;
+            max-height: 40vh;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-  <img src="napoveda_3.png" alt="Nápoveda k úlohe 3">
 
-  <div class="downloads">
-    <a href="generuj_3.txt" download>Stiahnuť vstupný súbor</a>
-    <a href="riesenie_3.py" download>Stiahnuť riešenie</a>
-    <a href="generovanie_3.py" download>Stiahnuť generátor</a>
-  </div>
+<div class="container">
+    <div class="section">
+        <img src="napoveda_3.png" alt="Zadanie úlohy 3">
+    </div>
 
-  <div class="answer-section">
-    <label for="odpoved">Zadaj svoju odpoveď:</label>
-    <input type="text" id="odpoved" placeholder="napr. 1234">
-    <button onclick="skontroluj()">Odoslať</button>
-    <div id="result"></div>
-  </div>
+    <div class="section">
+        <strong>Stiahnuť súbory:</strong>
+        <ul>
+            <li><a href="generuj_3.txt" download>Vstupný súbor (generuj_3.txt)</a></li>
+            <li><a href="generovanie_3.py" download>Generátor súboru (generovanie_3.py)</a></li>
+            <li><a href="riesenie_3.py" download>Riešenie (riesenie_3.py)</a></li>
+        </ul>
+    </div>
 
-  <script>
+    <div class="section">
+        <label for="odpoved">Zadaj odpoveď:</label><br>
+        <input type="text" id="odpoved" placeholder="napr. 5789">
+        <button onclick="skontroluj()">Odoslať</button>
+    </div>
+
+    <div id="next-task">
+        ✅ Správna odpoveď!
+    </div>
+</div>
+
+<script>
     function skontroluj() {
-      const spravnaOdpoved = "2821";
-      const userInput = document.getElementById("odpoved").value.trim();
-      const resultDiv = document.getElementById("result");
+        const spravna = "2821";
+        const odpoved = document.getElementById("odpoved").value.trim();
+        const vysledok = document.getElementById("next-task");
 
-      if (userInput === spravnaOdpoved) {
-        resultDiv.style.color = "green";
-        resultDiv.textContent = "Správna odpoveď! Môžeš prejsť na ďalšiu úlohu.";
-        // window.location.href = "dalsia_uloha.html"; // tu môžeš pridať link ak bude hotová ďalšia úloha
-      } else {
-        resultDiv.style.color = "red";
-        resultDiv.textContent = "Nesprávna odpoveď. Skús to znova.";
-      }
+        if (odpoved === spravna) {
+            vysledok.style.display = "block";
+            window.location.href = "https://zoldy9.github.io/zoznamiky-infomix/2821/";
+        } else {
+            alert("Nesprávna odpoveď. Skús znova.");
+            vysledok.style.display = "none";
+        }
     }
-  </script>
+</script>
+
 </body>
 </html>
