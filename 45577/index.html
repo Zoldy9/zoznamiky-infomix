@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <title>Úloha 5</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+    .downloads {
+      margin: 20px 0;
+    }
+    .downloads a {
+      margin-right: 15px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+    #response {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <img src="napoveda_5.png" alt="146">
+
+  <div class="downloads">
+    <a href="generuj_5.txt" download>Stiahnuť vstupný súbor</a>
+    <a href="generovanie_5.py" download>Stiahnuť generátor</a>
+    <a href="riesenie_5.py" download>Stiahnuť vzorové riešenie</a>
+  </div>
+
+  <input type="text" id="answerInput" placeholder="Zadaj odpoveď">
+  <button onclick="checkAnswer()">Odoslať</button>
+  <div id="response"></div>
+
+  <script>
+    function checkAnswer() {
+      const answer = document.getElementById('answerInput').value.trim();
+      const responseDiv = document.getElementById('response');
+
+      if (answer === '252') {
+        responseDiv.style.color = 'green';
+        responseDiv.textContent = 'Správna odpoveď! Úloha je vyriešená.';
+        // Presmerovanie môžeš zapnúť takto:
+        // window.location.href = "dalsia_uloha.html";
+      } else {
+        responseDiv.style.color = 'red';
+        responseDiv.textContent = 'Nesprávna odpoveď. Skús to znova.';
+      }
+    }
+  </script>
+</body>
+</html>
