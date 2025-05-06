@@ -1,68 +1,100 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
-  <meta charset="UTF-8">
-  <title>Úloha 5</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 40px;
-      font-family: sans-serif;
-      background-color: #f4f4f4;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-      overflow: hidden;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-    .downloads {
-      margin: 20px 0;
-    }
-    .downloads a {
-      margin-right: 15px;
-      text-decoration: none;
-      color: #0066cc;
-      font-weight: bold;
-    }
-    #response {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>INFOMIX – Úloha 5</title>
+    <style>
+        html, body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+        }
+        .container {
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .section {
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        #next-task {
+            display: none;
+            margin-top: 10px;
+            padding: 8px;
+            border: 1px solid #ccc;
+            background-color: #f3f3f3;
+        }
+        input[type="text"] {
+            font-size: 16px;
+            padding: 5px;
+            width: 280px;
+        }
+        button {
+            padding: 5px 10px;
+            font-size: 14px;
+            margin-left: 8px;
+        }
+        img {
+            max-width: 100%;
+            max-height: 40vh;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-  <img src="napoveda_5.png" alt="146">
 
-  <div class="downloads">
-    <a href="generuj_5.txt" download>Stiahnuť vstupný súbor</a>
-    <a href="generovanie_5.py" download>Stiahnuť generátor</a>
-    <a href="riesenie_5.py" download>Stiahnuť vzorové riešenie</a>
-  </div>
+<div class="container">
+    <div class="section">
+        <img src="napoveda_5.png" alt="Zadanie úlohy 5">
+    </div>
 
-  <input type="text" id="answerInput" placeholder="Zadaj odpoveď">
-  <button onclick="checkAnswer()">Odoslať</button>
-  <div id="response"></div>
+    <div class="section">
+        <strong>Stiahnuť súbory:</strong>
+        <ul>
+            <li><a href="generuj_5.txt" download>Vstupný súbor (generuj_5.txt)</a></li>
+            <li><a href="generovanie_5.py" download>Generátor súboru (generovanie_5.py)</a></li>
+            <li><a href="riesenie_5.py" download>Riešenie (riesenie_5.py)</a></li>
+        </ul>
+    </div>
 
-  <script>
-    function checkAnswer() {
-      const answer = document.getElementById('answerInput').value.trim();
-      const responseDiv = document.getElementById('response');
+    <div class="section">
+        <label for="odpoved">Zadaj odpoveď:</label><br>
+        <input type="text" id="odpoved" placeholder="napr. 345">
+        <button onclick="skontroluj()">Odoslať</button>
+    </div>
 
-      if (answer === '252') {
-        responseDiv.style.color = 'green';
-        responseDiv.textContent = 'Správna odpoveď! Úloha je vyriešená.';
-        // Presmerovanie môžeš zapnúť takto:
-        // window.location.href = "dalsia_uloha.html";
-      } else {
-        responseDiv.style.color = 'red';
-        responseDiv.textContent = 'Nesprávna odpoveď. Skús to znova.';
-      }
+    <div id="next-task">
+        ✅ Správna odpoveď!
+    </div>
+</div>
+
+<script>
+    function skontroluj() {
+        const spravna = "252";
+        const odpoved = document.getElementById("odpoved").value.trim();
+        const vysledok = document.getElementById("next-task");
+
+        if (odpoved === spravna) {
+            vysledok.style.display = "block";
+            window.location.href = "https://zoldy9.github.io/zoznamiky-infomix/252/";
+        } else {
+            alert("Nesprávna odpoveď. Skús znova.");
+            vysledok.style.display = "none";
+        }
     }
-  </script>
+</script>
+
 </body>
 </html>
